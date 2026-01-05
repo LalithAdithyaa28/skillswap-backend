@@ -13,20 +13,12 @@ Base URL:
 http://localhost:5000/api
 
 yaml
-Copy code
-
----
-
 ## Authentication
-
 ### Login
-
 **Endpoint**
+
 POST /auth/login
-
 css
-Copy code
-
 **Description**
 Logs a user in and returns a JWT token.
 
@@ -36,29 +28,26 @@ Logs a user in and returns a JWT token.
   "email": "user@example.com",
   "password": "123456"
 }
-Response
 
+Response
 json
-Copy code
 {
   "token": "jwt_token_here"
 }
+
 Skills
 Get All Skills
 Endpoint
 
 bash
-Copy code
 GET /skills
 Headers
 
 makefile
-Copy code
 Authorization: Bearer <JWT_TOKEN>
-Response
 
+Response
 json
-Copy code
 [
   {
     "id": 1,
@@ -67,41 +56,41 @@ Copy code
     "category": "Music"
   }
 ]
-Add a Skill
+
+Add a Skill:
 Endpoint
-
 bash
-Copy code
 POST /skills
-Headers
 
+Headers
 pgsql
-Copy code
 Authorization: Bearer <JWT_TOKEN>
 Content-Type: application/json
-Request Body
 
+Request Body:
 json
-Copy code
 {
   "title": "Yoga",
   "description": "Morning yoga sessions",
   "category": "Fitness"
 }
-Response
 
+Response:
 json
-Copy code
+
 {
   "message": "Skill added successfully"
 }
-Error Responses
-Code	Meaning
-401	Unauthorized / Invalid token
-400	Bad request
-500	Server error
 
-Notes
+Error Responses:
+
+Code	      Meaning
+401	       Unauthorized / Invalid token
+400	       Bad request
+500	       Server error
+
+Notes:
+
 All protected routes require JWT authentication.
 
 Token must be passed in the Authorization heade
